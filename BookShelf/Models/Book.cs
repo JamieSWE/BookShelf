@@ -22,7 +22,7 @@ namespace BookShelf.Models
         public DateTimeOffset PublishDate { get; set; }
 
         [Required(ErrorMessage ="The book amount is required.")]
-        public int Quantity { get; set; }
+        public int Quantity { get; set; } 
 
     }
 }
