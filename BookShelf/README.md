@@ -13,3 +13,5 @@ Simple C# web application tracks the the Inventory of books published.
 2. MVC Model
 3. Validation
 4. CRUD Operation
+5. CRUD Users
+6. Assign Roles to Users 
