@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BookShelf.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace BookShelf
 {
@@ -27,7 +28,10 @@ namespace BookShelf
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<BookShelfContext>(options =>
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                    .AddEntityFrameworkStores<BookShelfContext>();
+
+            services.AddDbContextPool<BookShelfContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BookShelfContext")));
         }
 
@@ -50,6 +54,7 @@ namespace BookShelf
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
