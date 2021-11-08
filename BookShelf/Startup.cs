@@ -28,8 +28,25 @@ namespace BookShelf
         {
             services.AddControllersWithViews();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                    .AddEntityFrameworkStores<BookShelfContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(/*options =>
+            {
+                options.Password.RequiredLength = 5;
+            }*/).AddEntityFrameworkStores<BookShelfContext>();
+
+            /*
+             services.Configure<IdentityOptions>(options =>
+             {
+                 options.Password.RequiredLength = 5;
+
+             used to override default password parameters
+                   other options include:
+                   requireduniquechars
+                   requirenonalphanumeric
+                   requireslowercase
+                   requireuppercase
+                   requiredigit
+
+     });*/
 
             services.AddDbContextPool<BookShelfContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BookShelfContext")));
@@ -53,8 +70,9 @@ namespace BookShelf
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
