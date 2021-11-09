@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookShelf.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookShelf.Models
 {
@@ -43,6 +44,8 @@ namespace BookShelf.Models
         }
 
         // GET: Books/Create
+        [HttpGet]
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -52,6 +55,7 @@ namespace BookShelf.Models
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookISBN,Title,PublishDate,Quantity")] Book book)
         {
@@ -65,6 +69,7 @@ namespace BookShelf.Models
         }
 
         // GET: Books/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace BookShelf.Models
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(string id, [Bind("BookISBN,Title,PublishDate,Quantity")] Book book)
         {
             if (id != book.BookISBN)
