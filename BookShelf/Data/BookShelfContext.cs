@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BookShelf.Data
 {
-    public class BookShelfContext : IdentityDbContext
+    public class BookShelfContext : IdentityDbContext<ApplicationUser>
     {
         public BookShelfContext (DbContextOptions<BookShelfContext> options)
             : base(options)

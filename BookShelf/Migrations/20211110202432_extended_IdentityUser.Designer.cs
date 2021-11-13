@@ -4,14 +4,16 @@ using BookShelf.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookShelf.Migrations
 {
     [DbContext(typeof(BookShelfContext))]
-    partial class BookShelfContextModelSnapshot : ModelSnapshot
+    [Migration("20211110202432_extended_IdentityUser")]
+    partial class extended_IdentityUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

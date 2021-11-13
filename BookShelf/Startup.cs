@@ -13,6 +13,7 @@ using BookShelf.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using BookShelf.Models;
 
 namespace BookShelf
 {
@@ -30,7 +31,7 @@ namespace BookShelf
         {
             services.AddControllersWithViews();
 
-            services.AddIdentity<IdentityUser, IdentityRole>(/*options =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(/*options =>
             {
                 options.Password.RequiredLength = 5;
             }*/).AddEntityFrameworkStores<BookShelfContext>();
