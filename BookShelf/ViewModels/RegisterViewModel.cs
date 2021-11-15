@@ -27,6 +27,6 @@ namespace BookShelf.ViewModels
             ErrorMessage = "Password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string City { get; set; }
+        public string City { get; set; } 
     }
 }
