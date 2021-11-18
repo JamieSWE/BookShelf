@@ -1,4 +1,5 @@
 This sample project was used to refamiliarize myself with C# and ASP.Net Core.
+
 Areas explored:
 1. Local DB
 2. Authorization
